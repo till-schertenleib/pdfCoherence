@@ -1,0 +1,90 @@
+[build-system]
+requires = ["setuptools>=77.0", "setuptools-git-versioning>=2.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pdfcoherence"
+dynamic=['version', 'dependencies']
+authors = [
+  {name='Till Schertenleib', email='till.schertenleib@gmail.com'},
+]
+maintainers = [
+  {name='Till Schertenleib', email='till.schertenleib@gmail.com'},
+]
+description = "Estimate the real-space coherence length of a material from its pair distribution function."
+keywords = ['PDF', 'pair distribution function', 'coherence length', 'nanoparticles', 'x-ray scattering']
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.12, <3.15"
+classifiers = [
+        'Development Status :: 3 - Alpha',
+        'Environment :: Console',
+        'Intended Audience :: Developers',
+        'Intended Audience :: Science/Research',
+        'Operating System :: MacOS :: MacOS X',
+        'Operating System :: Microsoft :: Windows',
+        'Operating System :: POSIX',
+        'Operating System :: Unix',
+        'Programming Language :: Python :: 3.12',
+        'Programming Language :: Python :: 3.13',
+        'Programming Language :: Python :: 3.14',
+        'Topic :: Scientific/Engineering :: Physics',
+        'Topic :: Scientific/Engineering :: Chemistry',
+]
+
+[project.urls]
+Homepage = "https://github.com/till-schertenleib/real-space-coherence-lenght-extractor/"
+Issues = "https://github.com/till-schertenleib/real-space-coherence-lenght-extractor/issues/"
+
+[tool.setuptools-git-versioning]
+enabled = true
+template = "{tag}"
+dev_template = "{tag}"
+dirty_template = "{tag}"
+
+[tool.setuptools.packages.find]
+where = ["src"]  # list of folders that contain the packages (["."] by default)
+include = ["*"]  # package names should match these glob patterns (["*"] by default)
+exclude = []  # exclude packages matching these glob patterns (empty by default)
+namespaces = false  # to disable scanning PEP 420 namespaces (true by default)
+
+[project.scripts]
+pdfcoherence = "pdfcoherence.cli:main"
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements/pip.txt"]}
+
+[tool.codespell]
+exclude-file = ".codespell/ignore_lines.txt"
+ignore-words = ".codespell/ignore_words.txt"
+skip = "*.cif,*.dat,*.cgr,*.gr"
+
+[tool.docformatter]
+recursive = true
+wrap-summaries = 72
+wrap-descriptions = 72
+
+[tool.black]
+line-length = 79
+target-version = ["py312"]
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | \.rst
+  | \.txt
+  | _build
+  | buck-out
+  | build
+  | dist
+
+  # The following are specific to Black, you probably don't want those.
+  | blib2to3
+  | tests/data
+)/
+'''

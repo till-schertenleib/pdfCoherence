@@ -1,0 +1,35 @@
+name: Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  tests:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        python-version: ["3.12", "3.13"]
+    defaults:
+      run:
+        shell: bash -el {0}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: conda-incubator/setup-miniconda@v3
+        with:
+          activate-environment: pdfcoherence_env
+          python-version: ${{ matrix.python-version }}
+          channels: conda-forge
+          auto-update-conda: true
+      - name: Install dependencies and package
+        run: |
+          conda install --file requirements/conda.txt --file requirements/tests.txt
+          pip install -e . --no-deps
+      - name: Run tests
+        run: pytest --cov=pdfcoherence
+      - name: Flake8
+        run: flake8 src tests

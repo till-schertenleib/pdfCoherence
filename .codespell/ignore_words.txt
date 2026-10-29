@@ -1,0 +1,11 @@
+;; Please include explanations for each ignored word (lowercase).
+;; See https://docs.openverse.org/meta/codespell.html for docs.
+
+;; abbreviation for "materials" often used in a journal title
+mater
+
+;; Frobenius norm used in np.linalg.norm
+fro
+
+;; part of the GitHub repository name (real-space-coherence-lenght-extractor)
+lenght
