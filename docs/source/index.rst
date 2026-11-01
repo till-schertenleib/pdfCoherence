@@ -22,20 +22,20 @@ Authors
 =======
 
 ``pdfcoherence`` is developed by Till Schertenleib. This project is maintained by Till Schertenleib. For a detailed list of contributors see
-https://github.com/till-schertenleib/real-space-coherence-lenght-extractor/graphs/contributors.
+https://github.com/till-schertenleib/pdfCoherence/graphs/contributors.
 
 ============
 Installation
 ============
 
-See the `README <https://github.com/till-schertenleib/real-space-coherence-lenght-extractor#installation>`_
+See the `README <https://github.com/till-schertenleib/pdfCoherence#installation>`_
 file included with the distribution.
 
 ================
 Acknowledgements
 ================
 
-``real-space-coherence-lenght-extractor`` is built and maintained with `scikit-package <https://scikit-package.github.io/scikit-package/>`_.
+``pdfcoherence`` is built and maintained with `scikit-package <https://scikit-package.github.io/scikit-package/>`_.
 
 =================
 Table of contents

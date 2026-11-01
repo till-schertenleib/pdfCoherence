@@ -25,6 +25,28 @@ conda activate pdfcoherence_env
 pip install -e . --no-deps
 ```
 
+`pip install -e .` makes an _editable_ install. The package is registered in
+the environment but still runs from this folder, so any script run in
+`pdfcoherence_env` can `import pdfcoherence`, from any folder, and your
+edits to the source take effect without reinstalling. You do not need to
+publish the package on PyPI or conda-forge for this.
+
+**Using it from other projects:**
+
+- Same environment: activate `pdfcoherence_env` and `import pdfcoherence` in
+  any script.
+- Another environment: install the dependencies listed in
+  `requirements/conda.txt` into it, then run
+  `pip install -e C:/path/to/pdfCoherence --no-deps` with that environment
+  active.
+- Colleagues without a clone: run
+  `pip install git+https://github.com/till-schertenleib/pdfCoherence.git`.
+  This needs read access to the repository if it is private. If they want
+  to edit the code, they should clone the repository and run
+  `pip install -e .` instead.
+- If you move or rename this folder, run `pip install -e . --no-deps` again
+  from its new location. The editable install stores the folder path.
+
 ## Quick start
 
 ### Command line
@@ -54,15 +76,18 @@ For each PDF the command writes:
 ### Python
 
 ```python
-from pdfcoherence.analysis import analyze
-from pdfcoherence.io import load_pdf
-from pdfcoherence.plotting import plot_result
+import pdfcoherence as pc
 
-r, gr = load_pdf("data/uio66_10nm_30percent_polydisp_noisy.cgr")
-result = analyze(r, gr, qdamp=0.01, shape="lognormal", polydispersity=0.3)
+r, gr = pc.load_pdf("data/uio66_10nm_30percent_polydisp_noisy.cgr")
+result = pc.analyze(r, gr, qdamp=0.01, shape="lognormal", polydispersity=0.3)
 print(result.r_thresh, result.r_model, result.fit.param, result.status)
-plot_result(result, "uio66_10nm.png")
+pc.plot_result(result, "uio66_10nm.png")
 ```
+
+The top level of the package provides `analyze`, `CoherenceResult`,
+`load_pdf`, `find_pdf_files` and `plot_result`. Lower-level functions are
+in the submodules, for example `pdfcoherence.envelopes.lognormal_sphere` or
+`pdfcoherence.signal.rolling_rms`.
 
 ---
 

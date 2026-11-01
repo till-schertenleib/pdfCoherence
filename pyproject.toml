@@ -34,8 +34,8 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/till-schertenleib/real-space-coherence-lenght-extractor/"
-Issues = "https://github.com/till-schertenleib/real-space-coherence-lenght-extractor/issues/"
+Homepage = "https://github.com/till-schertenleib/pdfCoherence/"
+Issues = "https://github.com/till-schertenleib/pdfCoherence/issues/"
 
 [tool.setuptools-git-versioning]
 enabled = true
