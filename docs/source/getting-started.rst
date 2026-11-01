@@ -17,6 +17,11 @@ Install the package in a conda environment:
     conda activate pdfcoherence_env
     pip install -e . --no-deps
 
+This editable install lets any script run in ``pdfcoherence_env`` import
+``pdfcoherence``, from any folder. To use the package in another
+environment, run ``pip install -e /path/to/pdfCoherence --no-deps`` there.
+If you move this folder, run the install again.
+
 Analyse a single PDF, or every PDF in a folder, with a known instrumental
 ``Qdamp`` (in inverse Angstrom):
 
@@ -29,11 +34,10 @@ The same analysis from Python:
 
 .. code-block:: python
 
-    from pdfcoherence.analysis import analyze
-    from pdfcoherence.io import load_pdf
+    import pdfcoherence as pc
 
-    r, gr = load_pdf("data/uio66_10nm_30percent_polydisp_noisy.cgr")
-    result = analyze(r, gr, qdamp=0.01, shape="sphere")
+    r, gr = pc.load_pdf("data/uio66_10nm_30percent_polydisp_noisy.cgr")
+    result = pc.analyze(r, gr, qdamp=0.01, shape="sphere")
     print(result.r_model, result.fit.param, result.status)
 
 The README describes the method, the meaning of the outputs and the

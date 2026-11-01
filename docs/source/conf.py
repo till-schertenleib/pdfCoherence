@@ -137,7 +137,7 @@ html_theme = "sphinx_rtd_theme"
 html_context = {
     "display_github": True,
     "github_user": "till-schertenleib",
-    "github_repo": "real-space-coherence-lenght-extractor",
+    "github_repo": "pdfCoherence",
     "github_version": "main",
     "conf_py_path": "/docs/source/",
 }

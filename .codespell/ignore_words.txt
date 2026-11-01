@@ -6,6 +6,3 @@ mater
 
 ;; Frobenius norm used in np.linalg.norm
 fro
-
-;; part of the GitHub repository name (real-space-coherence-lenght-extractor)
-lenght

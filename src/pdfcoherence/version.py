@@ -7,7 +7,7 @@
 # File coded by: Till Schertenleib.
 #
 # See GitHub contributions for a more detailed list of contributors.
-# https://github.com/till-schertenleib/real-space-coherence-lenght-extractor/graphs/contributors  # noqa: E501
+# https://github.com/till-schertenleib/pdfCoherence/graphs/contributors
 #
 # See LICENSE for license information.
 #

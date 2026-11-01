@@ -2,6 +2,7 @@
 
 * Lognormal polydisperse-sphere envelope (--shape lognormal)
 * Package coherence-length extraction as pdfcoherence with CLI and API
+* Top-level imports, e.g. pdfcoherence.analyze and pdfcoherence.load_pdf
 
 **Changed:**
 
